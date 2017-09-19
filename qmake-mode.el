@@ -1,10 +1,12 @@
-;;; qmake-mode-el --- Major mode for editing QMAKE files
+;;; qmake-mode.el --- Major mode for editing QMAKE files
 
 ;; Author: Hyungchan Kim <inlinechan@gmail.com>
 ;; Created: 10 Nov 2015
 ;; Keywords: files, languages, tools
 
 ;; Copyright (C) 2015 Hyungchan Kim <inlinechan@gmail.com>
+
+;; This file is NOT part of GNU Emacs.
 
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
