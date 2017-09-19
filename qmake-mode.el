@@ -1,4 +1,4 @@
-;;; qmake-mode-el -- Major mode for editing QMAKE files
+;;; qmake-mode-el --- Major mode for editing QMAKE files
 
 ;; Author: Hyungchan Kim <inlinechan@gmail.com>
 ;; Created: 10 Nov 2015
