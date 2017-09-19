@@ -2,7 +2,7 @@
 
 ;; Author: Hyungchan Kim <inlinechan@gmail.com>
 ;; Created: 10 Nov 2015
-;; Keywords: QMAKE major-mode
+;; Keywords: files, languages, tools
 
 ;; Copyright (C) 2015 Hyungchan Kim <inlinechan@gmail.com>
 
