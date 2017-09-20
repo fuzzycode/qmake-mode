@@ -223,6 +223,7 @@
     "RCC_DIR"
     "REQUIRES"
     "RES_FILE"
+    "RESOURCES"
     "SOURCES"
     "SRCMOC"
     "SUBDIRS"
