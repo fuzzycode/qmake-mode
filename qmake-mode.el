@@ -86,7 +86,8 @@
     "else"
     "unix"
     "win32"
-    "mac")
+    "mac"
+    "osx")
   "Qmake function types."
   )
 
