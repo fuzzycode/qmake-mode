@@ -4,7 +4,7 @@
 ;; Created: 10 Nov 2015
 ;; Keywords: files, languages, tools
 
-;; Copyright (C) 2015 Hyungchan Kim <inlinechan@gmail.com>
+;; Copyright (C) 2015, 2017 Hyungchan Kim <inlinechan@gmail.com>
 
 ;; This file is NOT part of GNU Emacs.
 
@@ -60,8 +60,9 @@
   :group 'qmake-mode)
 (put 'qmake-indent-width 'safe-local-variable 'integerp)
 
-(defvar qmake-functions-variables
-  '("basename"
+(setq function-names
+  '(or
+    "basename"
     "CONFIG"
     "contains"
     "count"
@@ -88,8 +89,7 @@
     "win32"
     "mac"
     "osx")
-  "Qmake function types."
-  )
+    )
 
 (defvar qmake-variables
   '("CONFIG"
@@ -250,15 +250,34 @@
   "Qmake variables."
   )
 
-(defvar qmake-functions-regexp (regexp-opt qmake-functions-variables 'words))
-(defvar qmake-variables-regexp (regexp-opt qmake-variables 'words))
-
 (defvar qmake-font-lock-keywords
-  (list
-   '("#.*" . font-lock-comment-face)
-   `(,qmake-functions-regexp . ,font-lock-function-name-face)
-   `(,qmake-variables-regexp . ,font-lock-builtin-face))
-  "Default highlighting expressions for QMAKE mode.")
+  `(
+    ;; Find functions
+    (,(rx bol
+          (and (zero-or-more (syntax whitespace)) (group (eval function-names))
+               (zero-or-more (syntax whitespace))
+               "("
+               (zero-or-more not-newline)
+               ")"
+               (zero-or-more not-newline)
+               )
+          eol)
+     (1 'font-lock-function-name-face t t))
+
+    ;; Find variables
+    (,(rx bol
+          (and
+           (zero-or-more (syntax whitespace))
+           (group (minimal-match (zero-or-more word)))
+           (zero-or-more (syntax whitespace))
+           (optional (or "+" "-" "*" "~"))
+           "="
+           (zero-or-more not-newline)
+           )
+          eol)
+     (1 'font-lock-type-face))
+    )
+  )
 
 (defvar qmake-mode-syntax-table
   (let ((syntax-table (make-syntax-table)))
