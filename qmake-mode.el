@@ -279,20 +279,8 @@
     (,(rx (and
            "$$"
            (optional (or "{" (syntax open-parenthesis)))
-           word-start
            (group (one-or-more word))
-           word-end
            (optional (or "}" (syntax close-parenthesis)))
-           ))
-     (1 'font-lock-type-face))
-
-    ;; Match $$function usage
-    (,(rx (and
-           "$$"
-           (group (minimal-match (one-or-more not-newline)))
-           "("
-           (minimal-match (zero-or-more not-newline))
-           ")"
            ))
      (1 'font-lock-type-face))
     )
