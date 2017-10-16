@@ -253,15 +253,14 @@
 (defvar qmake-font-lock-keywords
   `(
     ;; Find functions
-    (,(rx bol
-          (and (zero-or-more (syntax whitespace)) (group (eval function-names))
+    (,(rx (and bow
+               (group (eval function-names))
+               eow
                (zero-or-more (syntax whitespace))
                "("
-               (zero-or-more not-newline)
+               (minimal-match (zero-or-more not-newline))
                ")"
-               (zero-or-more not-newline)
-               )
-          eol)
+               ))
      (1 'font-lock-function-name-face t t))
 
     ;; Find variables
