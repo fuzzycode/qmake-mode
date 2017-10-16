@@ -277,18 +277,15 @@
      (1 'font-lock-type-face))
 
     ;; Match $$ Variable usage
-    (,(rx bol
-          (and
-           (zero-or-more not-newline)
+    (,(rx (and
            "$$"
            (optional (or "{" (syntax open-parenthesis)))
            word-start
            (group (one-or-more word))
            word-end
            (optional (or "}" (syntax close-parenthesis)))
-           (zero-or-more not-newline)
-           )
-          eol)
+           ))
+     (1 'font-lock-type-face))
      (1 'font-lock-type-face))
     )
   )
