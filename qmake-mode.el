@@ -264,16 +264,15 @@
      (1 'font-lock-function-name-face t t))
 
     ;; Find variables
-    (,(rx bol
-          (and
-           (zero-or-more (syntax whitespace))
+    (,(rx (and
+           bow
            (group (minimal-match (zero-or-more word)))
+           eow
            (zero-or-more (syntax whitespace))
            (optional (or "+" "-" "*" "~"))
            "="
-           (zero-or-more not-newline)
            )
-          eol)
+          )
      (1 'font-lock-type-face))
 
     ;; Match $$ Variable usage
