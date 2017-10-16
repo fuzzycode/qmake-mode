@@ -285,6 +285,15 @@
            (optional (or "}" (syntax close-parenthesis)))
            ))
      (1 'font-lock-type-face))
+
+    ;; Match $$function usage
+    (,(rx (and
+           "$$"
+           (group (minimal-match (one-or-more not-newline)))
+           "("
+           (minimal-match (zero-or-more not-newline))
+           ")"
+           ))
      (1 'font-lock-type-face))
     )
   )
