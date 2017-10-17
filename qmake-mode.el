@@ -296,6 +296,20 @@
                         ))
            ))
      (1 'font-lock-type-face))
+
+    ;; Match function definitions
+    (,(rx bol
+         (and
+          (zero-or-more (syntax whitespace))
+          (group (one-or-more word))
+          (zero-or-more (syntax whitespace))
+          "("
+          (zero-or-more not-newline)
+          ")"
+          (zero-or-more (syntax whitespace))
+          "{"
+          ))
+     (1 'font-lock-type-face))
     )
   )
 
