@@ -295,7 +295,7 @@
                         (zero-or-more (syntax whitespace))
                         ))
            ))
-     (1 'font-lock-type-face))
+     (1 'font-lock-builtin-face))
 
     ;; Match function definitions
     (,(rx bol
