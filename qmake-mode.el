@@ -273,7 +273,7 @@
            "="
            )
           )
-     (1 'font-lock-type-face))
+     (1 'font-lock-constant-face))
 
     ;; Match $$ Variable usage
     (,(rx (and
