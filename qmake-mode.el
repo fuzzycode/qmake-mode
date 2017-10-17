@@ -283,6 +283,19 @@
            (optional (or "}" (syntax close-parenthesis)))
            ))
      (1 'font-lock-type-face))
+
+    ;; Match conditionals
+    (,(rx (and
+           bow
+           (group (minimal-match (one-or-more word)))
+           eow
+           (or "|" ":" (and
+                        (one-or-more (syntax whitespace))
+                        "{"
+                        (zero-or-more (syntax whitespace))
+                        ))
+           ))
+     (1 'font-lock-type-face))
     )
   )
 
